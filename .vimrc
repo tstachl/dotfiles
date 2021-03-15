@@ -1,6 +1,8 @@
-execute pathogen#infect()
-syntax on
-filetype plugin indent on
+" download vim-plug if missing
+if empty(glob("~/.vim/autoload/plug.vim"))
+  silent! execute '!curl --create-dirs -fsSLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * silent! PlugInstall
+endif
 
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
@@ -9,6 +11,9 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'sainnhe/sonokai'
 Plug 'sheerun/vim-polyglot'
+Plug 'itchyny/lightline.vim'
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-fugitive'
 
 " Initialize plugin system
 call plug#end()
