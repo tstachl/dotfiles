@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# 1. init submodules
+#echo "Init submodules"
+#yadm submodule update --recursive --init
+
+# update ssh
+echo "Updating the yadm repo origin URL"
+yadm remote set-url origin "git@github.com:tstachl/dotfiles.git"
+
+# install vim plugins
+if command -v vim >/dev/null 2>&1; then
+  echo "Bootstraping Vim"
+  vim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
+fi
+
