@@ -28,3 +28,6 @@ zinit light-mode for \
 # If You Come From Bash You Might Have To Change Your $PATH.
 # export PATH=:/usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
+
+zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
+zinit light sindresorhus/pure
