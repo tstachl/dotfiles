@@ -18,15 +18,21 @@ Plug 'tpope/vim-fugitive'
 " Initialize plugin system
 call plug#end()
 
+" Utility method to check if a plugin is installed
+function PlugLoaded(plugin)
+  if isdirectory(g:plug_home . "/" . a:plugin)
+    \ && index(keys(g:plugs), a:plugin) >=0
+    return 1
+  else
+    return 0
+  endif
+endfunction
+
 " NERDTree open shortcut
 map <C-p> :NERDTreeToggle<CR>
 map <C-f> :NERDTreeFind<CR>
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
-
-" Fuzzy file search in command line
-" fzf Installed with Homebrew
-set rtp+=/usr/local/opt/fzf
 
 " convert tabs to spaces and tabspaces to 2
 set smartindent
@@ -68,24 +74,27 @@ set laststatus=2
 set noshowmode
 let g:lightline = {'colorscheme' : 'sonokai'}
 let g:customLightlineConfig = {
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'readonly', 'relativepath', 'modified' ] ]
-      \ },
-      \ 'inactive': {
-      \   'left': [ [ 'relativepath' ] ]
-      \}
-      \}
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'readonly', 'relativepath', 'modified' ] ]
+    \ },
+    \ 'inactive': {
+    \   'left': [ [ 'relativepath' ] ]
+    \}
+    \}
 
 syntax enable
 if has('termguicolors')
   set termguicolors
 endif
+
 " The configuration options should be placed before `colorscheme sonokai`.
-let g:sonokai_style = 'andromeda'
-let g:sonokai_enable_italic = 1
-let g:sonokai_disable_italic_comment = 1
-colorscheme sonokai
+if PlugLoaded('sonokai')
+  let g:sonokai_style = 'andromeda'
+  let g:sonokai_enable_italic = 1
+  let g:sonokai_disable_italic_comment = 1
+  colorscheme sonokai
+endif
 
 " set text highlight on searched text
 set hlsearch
