@@ -51,10 +51,13 @@ set previewheight=30
 set number
 
 " put tmp files elsewhere
-set backupdir=~/.vim/backup/
+silent !mkdir ~/.vim/backup > /dev/null 2>&1
+set backupdir=~/.vim/backup
 set backupcopy=yes " make a copy of the file and overwrite the original one
-set directory=~/.vim/swap/
-set undodir=~/.vim/undo/
+silent !mkdir ~/.vim/swap > /dev/null 2>&1
+set directory=~/.vim/swap
+silent !mkdir ~/.vim/undo > /dev/null 2>&1
+set undodir=~/.vim/undo
 
 " background color warning for long lines
 set colorcolumn=80
