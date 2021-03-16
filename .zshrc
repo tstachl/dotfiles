@@ -33,3 +33,7 @@ zinit light sindresorhus/pure
 
 export GPG_TTY=$(tty)
 
+export LANGUAGE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=C
+
