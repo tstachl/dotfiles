@@ -5,7 +5,7 @@
 # Add important dependencies ...
 sudo apt-get update -y \
   && sudo apt-get upgrade -y \
-  && sudo apt-get install -y git zsh vim curl gpg \
+  && sudo apt-get install -y git zsh vim tmux curl gpg \
   && sudo curl -fLo /usr/local/bin/yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && sudo chmod a+x /usr/local/bin/yadm \
   && yadm clone https://github.com/tstachl/dotfiles.git
 
