@@ -18,8 +18,17 @@ zinit light-mode for \
     zinit-zsh/z-a-as-monitor \
     zinit-zsh/z-a-patch-dl \
     zinit-zsh/z-a-bin-gem-node
-
 ### End of Zinit's installer chunk
+
+
+zinit for \
+    light-mode  zsh-users/zsh-autosuggestions \
+    light-mode  zdharma/fast-syntax-highlighting \
+                zdharma/history-search-multi-word \
+    light-mode pick"async.zsh" src"pure.zsh" \
+                sindresorhus/pure
+
+
 
 # - - - - - - - - - - - - - - - - - - - -
 # Homebrew Configuration
@@ -27,9 +36,6 @@ zinit light-mode for \
 # If You Come From Bash You Might Have To Change Your $PATH.
 # export PATH=:/usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
-
-zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
-zinit light sindresorhus/pure
 
 export GPG_TTY=$(tty)
 
