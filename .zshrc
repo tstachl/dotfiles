@@ -37,3 +37,4 @@ export LANGUAGE=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LC_ALL=C
 
+alias ts="tmux new-session -A -s"
