@@ -34,6 +34,7 @@ map <C-p> :NERDTreeToggle<CR>
 map <C-f> :NERDTreeFind<CR>
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+let NERDTreeShowHidden = 1
 
 " convert tabs to spaces and tabspaces to 2
 set smartindent
