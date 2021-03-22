@@ -15,6 +15,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'ekalinin/Dockerfile.vim'
+Plug 'miyakogi/seiya.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -63,6 +64,9 @@ set undodir=~/.vim/undo
 
 " background color warning for long lines
 set colorcolumn=80
+
+" make background transparent
+let g:seiya_auto_enable=1
 
 " allow mouse use
 set mouse=a
