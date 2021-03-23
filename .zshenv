@@ -12,3 +12,7 @@ export LANG=en_US.UTF-8
 export LC_ALL=C
 
 alias ts="tmux new-session -A -s"
+
+devenv() {
+  docker run -ite $1 tstachl/devenv
+}
