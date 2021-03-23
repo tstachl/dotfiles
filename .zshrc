@@ -14,17 +14,9 @@ autoload -Uz _zinit
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
 zinit light-mode for \
-    zinit-zsh/z-a-rust \
-    zinit-zsh/z-a-as-monitor \
-    zinit-zsh/z-a-patch-dl \
-    zinit-zsh/z-a-bin-gem-node
+    zsh-users/zsh-autosuggestions \
+    zdharma/fast-syntax-highlighting \
+    zdharma/history-search-multi-word \
+    pick"async.zsh" src"pure.zsh" \
+        sindresorhus/pure
 ### End of Zinit's installer chunk
-
-
-zinit for \
-    light-mode  zsh-users/zsh-autosuggestions \
-    light-mode  zdharma/fast-syntax-highlighting \
-                zdharma/history-search-multi-word \
-    light-mode pick"async.zsh" src"pure.zsh" \
-                sindresorhus/pure
-
