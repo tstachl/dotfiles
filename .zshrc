@@ -11,12 +11,13 @@ source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
+zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
+
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
 zinit light-mode for \
     zsh-users/zsh-autosuggestions \
     zdharma/fast-syntax-highlighting \
     zdharma/history-search-multi-word \
-    pick"async.zsh" src"pure.zsh" \
-        sindresorhus/pure
-### End of Zinit's installer chunk
+    sindresorhus/pure \
+# ### End of Zinit's installer chunk
