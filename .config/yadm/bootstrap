@@ -4,12 +4,6 @@
 echo "update yadm repo origin"
 yadm remote set-url origin "git@github.com:tstachl/dotfiles.git"
 
-echo "install docker"
-sh -c "$(curl -sSL https://get.docker.com/)"
-sudo usermod -aG docker $USER
-sudo systemctl enable docker.service
-sudo systemctl enable containerd.service
-
 # install vim plugins
 if command -v vim >/dev/null 2>&1; then
   echo "bootstrapping vim"
