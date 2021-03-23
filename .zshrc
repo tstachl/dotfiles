@@ -19,5 +19,4 @@ zinit light-mode for \
     zsh-users/zsh-autosuggestions \
     zdharma/fast-syntax-highlighting \
     zdharma/history-search-multi-word \
-    sindresorhus/pure
 # ### End of Zinit's installer chunk
