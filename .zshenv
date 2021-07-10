@@ -14,5 +14,5 @@ export LC_ALL=C
 alias ts="tmux new-session -A -s"
 
 devenv() {
-  docker run -ite $1 tstachl/devenv
+  docker run --rm --privileged -ite REPO=$1 --mount source=devenv,target=/home/thomas/workspace -v /var/run/docker.sock:/var/run/docker.sock tstachl/devenv
 }
