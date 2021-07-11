@@ -14,5 +14,3 @@ devenv() {
   docker run --rm --privileged -ite REPO=$1 --mount source=devenv,target=/home/thomas/workspace -v /var/run/docker.sock:/var/run/docker.sock tstachl/devenv
 }
 
-source $(brew --prefix nvm)/nvm.sh
-
