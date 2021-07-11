@@ -137,3 +137,5 @@
   insteadof = github:
 [pull]
 	rebase = false
+[init]
+	defaultBranch = master
