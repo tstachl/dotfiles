@@ -1,3 +1,4 @@
 .ssh/id_*
 .ssh/config
 .docker/config.json
+.cloudflared/*
