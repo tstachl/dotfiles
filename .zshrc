@@ -11,7 +11,7 @@ source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-export PURE_PROMPT_SYMBOL=">"
+export PURE_PROMPT_SYMBOL="$"
 zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
 
 # Load a few important annexes, without Turbo
@@ -21,4 +21,5 @@ zinit light-mode for \
     zdharma/fast-syntax-highlighting \
     zdharma/history-search-multi-word \
     sindresorhus/pure \
-# ### End of Zinit's installer chunk
+    nocttuam/autodotenv \
+### End of Zinit's installer chunk
