@@ -2,10 +2,13 @@ export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
 export PATH="$PATH":"$HOME/.pub-cache/bin":"$HOME/Library/Python/3.9/bin"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # force a `yadm pull` every time on login
 ping -c1 -W1 1.1.1.1 >/dev/null 2>&1
 if [ $? = 0 ]; then
   yadm pull
 fi
+
+hash -d repos=/Users/tstachl/Workspace/personal/repos
 
