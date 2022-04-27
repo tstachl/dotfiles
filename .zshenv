@@ -4,6 +4,9 @@ export LANGUAGE=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LC_ALL=C
 
+# use nvm auto
+export NVM_AUTO_USE=true
+
 # tmux alias
 alias ts="tmux new-session -A -s"
 # ssh aliases for cluster
@@ -16,3 +19,5 @@ devenv() {
 cloudflared() {
   docker run --rm -itv $HOME/.cloudflared:/root/.cloudflared pilina/cloudflared $@
 }
+# add node_modules bin to path
+export PATH="./node_modules/.bin:$PATH"
