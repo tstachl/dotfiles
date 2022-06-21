@@ -12,3 +12,5 @@ fi
 
 hash -d repos=/Users/tstachl/Workspace/personal/repos
 
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+
