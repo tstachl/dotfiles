@@ -4,8 +4,3 @@
 echo "update yadm repo origin"
 yadm remote set-url origin "git@github.com:tstachl/dotfiles.git"
 
-# install vim plugins
-if command -v vim >/dev/null 2>&1; then
-  echo "bootstrapping vim"
-  vim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
-fi
