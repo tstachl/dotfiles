@@ -4,6 +4,8 @@ source $(brew --prefix nvm)/nvm.sh
 export PATH="$PATH":"$HOME/.pub-cache/bin":"$HOME/Library/Python/3.9/bin"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+export LC_ALL='en_US.UTF-8'
+
 # force a `yadm pull` every time on login
 ping -c1 -W1 1.1.1.1 >/dev/null 2>&1
 if [ $? = 0 ]; then
@@ -11,6 +13,4 @@ if [ $? = 0 ]; then
 fi
 
 hash -d repos=/Users/tstachl/Workspace/personal/repos
-
-alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
