@@ -1,11 +1,16 @@
 #!/bin/sh
 
-# update ssh
 echo "update yadm repo origin"
 yadm remote set-url origin "git@github.com:tstachl/dotfiles.git"
 
-# install vim plugins
-if command -v vim >/dev/null 2>&1; then
-  echo "bootstrapping vim"
-  vim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
+echo "install tmux plugins manager"
+if command -v tmux &> /dev/null
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  ~/.tmux/plugins/tpm/bin/install_plugins
 fi
+
+echo "install nvim packer and sync"
+if command -v nvim &> /dev/null
+  nvim --headless -c "autocmd User PackerComplete quitall" -c "PackerSync"
+fi
+
