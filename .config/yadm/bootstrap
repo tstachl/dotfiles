@@ -1,6 +1,8 @@
-#!/bin/sh
+#!/usr/bin/fish
 
 # update ssh
 echo "update yadm repo origin"
 yadm remote set-url origin "git@github.com:tstachl/dotfiles.git"
 
+# add fisher package manager
+curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
