@@ -1,8 +1,16 @@
 #!/usr/bin/fish
 
-# update ssh
 echo "update yadm repo origin"
 yadm remote set-url origin "git@github.com:tstachl/dotfiles.git"
 
-# add fisher package manager
-curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+echo "install tmux plugins manager"
+if type -f tmux
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  ~/.tmux/plugins/tpm/bin/install_plugins
+end
+
+echo "install nvim packer and sync"
+if type -f nvim
+  nvim --headless -c "autocmd User PackerComplete quitall"
+end
+

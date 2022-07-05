@@ -3,7 +3,6 @@ if not functions -q fundle
 end
 
 fundle plugin "pure-fish/pure"
-
 fundle init
 
 if status --is-interactive
@@ -11,10 +10,8 @@ if status --is-interactive
     yadm decrypt
   end
 
-  # check if we have internet connection and pull yadm  
   if ping -c1 -W1 1.1.1.1 >/dev/null 2>&1
     yadm pull
   end
 end
-
 
