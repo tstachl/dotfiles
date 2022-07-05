@@ -4,13 +4,13 @@ echo "update yadm repo origin"
 yadm remote set-url origin "git@github.com:tstachl/dotfiles.git"
 
 echo "install tmux plugins manager"
-if command -v tmux &> /dev/null
+if type -f tmux
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   ~/.tmux/plugins/tpm/bin/install_plugins
-fi
+end
 
 echo "install nvim packer and sync"
-if command -v nvim &> /dev/null
+if type -f nvim
   nvim --headless -c "autocmd User PackerComplete quitall" -c "PackerSync"
-fi
+end
 
