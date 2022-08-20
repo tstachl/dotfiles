@@ -11,5 +11,5 @@ fi
 
 echo "install nvim packer and sync"
 if command -v nvim &> /dev/null; then
-  nvim --headless -c "PackerSync"
+  nvim --headless -c "autocmd User PackerComplete quitall"
 fi
