@@ -3,6 +3,11 @@
 echo "update yadm repo origin"
 yadm remote set-url origin "git@github.com:tstachl/dotfiles.git"
 
+if ! command -v sheldon &> /dev/null; then
+  curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh \
+    | bash -s -- --repo rossmacarthur/sheldon --to ~/.local/bin
+fi
+
 echo "install tmux plugins manager"
 if command -v tmux &> /dev/null; then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
