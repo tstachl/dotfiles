@@ -73,17 +73,17 @@ bufferline.setup {
   },
   highlights = {
     fill = {
-      guifg = { attribute = "fg", highlight = "#ff0000" },
-      guibg = { attribute = "bg", highlight = "TabLine" },
+      fg = { attribute = "fg", highlight = "#ff0000" },
+      bg = { attribute = "bg", highlight = "TabLine" },
     },
     background = {
-      guifg = { attribute = "fg", highlight = "TabLine" },
-      guibg = { attribute = "bg", highlight = "TabLine" },
+      fg = { attribute = "fg", highlight = "TabLine" },
+      bg = { attribute = "bg", highlight = "TabLine" },
     },
 
     -- buffer_selected = {
-    --   guifg = {attribute='fg',highlight='#ff0000'},
-    --   guibg = {attribute='bg',highlight='#0000ff'},
+    --   fg = {attribute='fg',highlight='#ff0000'},
+    --   bg = {attribute='bg',highlight='#0000ff'},
     --   gui = 'none'
     --   },
     buffer_visible = {
@@ -100,8 +100,8 @@ bufferline.setup {
       bg = { attribute = "bg", highlight = "TabLine" },
     },
     -- close_button_selected = {
-    --   guifg = {attribute='fg',highlight='TabLineSel'},
-    --   guibg ={attribute='bg',highlight='TabLineSel'}
+    --   fg = {attribute='fg',highlight='TabLineSel'},
+    --   bg ={attribute='bg',highlight='TabLineSel'}
     --   },
 
     tab_selected = {
@@ -156,8 +156,8 @@ bufferline.setup {
       bg = { attribute = "bg", highlight = "Normal" },
     },
     -- separator_visible = {
-    --   guifg = {attribute='bg',highlight='TabLine'},
-    --   guibg = {attribute='bg',highlight='TabLine'}
+    --   fg = {attribute='bg',highlight='TabLine'},
+    --   bg = {attribute='bg',highlight='TabLine'}
     --   },
     indicator_selected = {
       fg = { attribute = "fg", highlight = "LspDiagnosticsDefaultHint" },
