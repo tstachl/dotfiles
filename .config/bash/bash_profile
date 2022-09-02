@@ -8,25 +8,22 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
+# config dir
+_configdir="${XDG_CONFIG_HOME:-$HOME/.config}/bash"
 # if running bash
-if [ -n "$BASH_VERSION" ]; then
+if [ -n "$BASH_VERSION" ] ; then
     # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
+    if [ -f "$_configdir/.bashrc" ]; then
+	    source "$_configdir/.bashrc"
     fi
 fi
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
+if [ -f "$_configdir/bash_variables" ] ; then
+    source "$_configdir/bash_variables"
 fi
+unset _configdir
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
-
-# XDG Base Directory Specification
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CONFIG_HOME="$HOME/.config"
-

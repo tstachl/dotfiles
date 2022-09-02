@@ -1,0 +1,2 @@
+# YADM encrypt only works if GPG_TTY is set
+export GPG_TTY=$(tty)
