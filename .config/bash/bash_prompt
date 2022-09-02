@@ -47,13 +47,20 @@ function _pure_path {
 }
 
 function _pure_git_branch {
-  local _branch=$(git symbolic-ref --short -q HEAD 2>/dev/null)
-  echo -e "${_pure_colors["git:branch"]}${_branch}${_pure_colors["clear"]}"
+  local branch=$(git symbolic-ref --short -q HEAD 2>/dev/null)
+  echo -e "${_pure_colors["git:branch"]}${branch}${_pure_colors["clear"]}"
 }
 
 function _pure_git_dirty {
   if [[ -n $(git status -s 2>/dev/null) ]]; then
-    echo -e "${_pure_colors["git:dirty"]}*${_pure_colors["clear"]}"
+    echo -e "${_pure_colors["git:dirty"]} *${_pure_colors["clear"]}"
+  fi
+}
+
+function _pure_git_stash {
+  local stash_number=$(git stash list 2>/dev/null | wc -l)
+  if [ $stash_number != 0 ]; then
+    echo -e "${_pure_colors["git:stash"]} ≡${_pure_colors["clear"]}"
   fi
 }
 
@@ -69,7 +76,7 @@ function _pure_user_host_path {
 function __prompt_command {
   local last_exit="$?"
 
-  PS1="$(_pure_user_host_path) $(_pure_git_branch) $(_pure_git_dirty)\n"
+  PS1="$(_pure_user_host_path) $(_pure_git_branch)$(_pure_git_dirty)$(_pure_git_stash)\n"
 
   if [ $last_exit != 0 ]; then
     PS1+="${_pure_colors["prompt:error"]}\$${_pure_colors["clear"]} "
