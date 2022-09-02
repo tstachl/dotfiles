@@ -1,0 +1,81 @@
+# ┌────────────────────────────────────────────────────── user
+# │      ┌─────────────────────────────────────────────── host
+# │      │           ┌─────────────────────────────────── path
+# │      │           │          ┌──────────────────────── git:branch
+# │      │           │          │     ┌────────────────── git:dirty
+# │      │           │          │     │ ┌──────────────── git:action
+# │      │           │          │     │ │        ┌─────── git:arrow
+# │      │           │          │     │ │        │ ┌───── git:stash
+# │      │           │          │     │ │        │ │ ┌─── execution_time
+# │      │           │          │     │ │        │ │ │
+# zaphod@heartofgold ~/dev/pure master* rebase-i ⇡ ≡ 42s
+# venv ❯
+# │    │
+# │    └───────────────────────────────────────────────── prompt
+# └────────────────────────────────────────────────────── prompt:continuation
+
+declare -A _pure_colors=(
+  ["execution_time"]="\[\e[1;33m\]"
+  ["git:arrow"]="\[\e[0;36m\]"
+  ["git:stash"]="\[\e[0;36m\]"
+  ["git:branch"]="\[\e[0;38;5;242m\]"
+  ["git:branch:cached"]="\[\e[0;31m\]"
+  ["git:action"]="\[\e[1;33m\]"
+  ["git:dirty"]="\[\e[0;38;5;218m\]"
+  ["host"]="\[\e[0;38;5;242m\]"
+  ["path"]="\[\e[0;34m\]"
+  ["prompt:error"]="\[\e[0;31m\]"
+  ["prompt:success"]="\[\e[0;35m\]"
+  ["prompt:continuation"]="\[\e[0;38;5;242m\]"
+  ["suspended_jobs"]="\[\e[0;31m\]"
+  ["user"]="\[\e[0;38;5;242m\]"
+  ["user:root"]="\[\e[1;37m\]"
+  ["virtualenv"]="\[\e[0;38;5;242m\]"
+  ["clear"]="\[\e[0m\]"
+)
+
+function _pure_user {
+  echo -e "${_pure_colors["user"]}\u@${_pure_colors["clear"]}"
+}
+
+function _pure_host {
+  echo -e "${_pure_colors["host"]}\h${_pure_colors["clear"]}"
+}
+
+function _pure_path {
+  echo -e "${_pure_colors["path"]}\w${_pure_colors["clear"]}"
+}
+
+function _pure_git_branch {
+  local _branch=$(git symbolic-ref --short -q HEAD 2>/dev/null)
+  echo -e "${_pure_colors["git:branch"]}${_branch}${_pure_colors["clear"]}"
+}
+
+function _pure_git_dirty {
+  if [[ -n $(git status -s 2>/dev/null) ]]; then
+    echo -e "${_pure_colors["git:dirty"]}*${_pure_colors["clear"]}"
+  fi
+}
+
+function _pure_user_host_path {
+  local _user_host="$(_pure_user)$(_pure_host)"
+  if [ -z "${_user_host}" ]; then
+    echo "$(_pure_path)"
+  else
+    echo "${_user_host} $(_pure_path)"
+  fi
+}
+
+function __prompt_command {
+  local last_exit="$?"
+
+  PS1="$(_pure_user_host_path) $(_pure_git_branch) $(_pure_git_dirty)\n"
+
+  if [ $last_exit != 0 ]; then
+    PS1+="${_pure_colors["prompt:error"]}\$${_pure_colors["clear"]} "
+  else
+    PS1+="${_pure_colors["prompt:success"]}\$${_pure_colors["clear"]} "
+  fi
+}
+
+PROMPT_COMMAND=__prompt_command
