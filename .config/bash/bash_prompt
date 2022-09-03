@@ -73,10 +73,17 @@ function _pure_user_host_path {
   fi
 }
 
+function _pure_execution_time {
+  if [ "$SECONDS" -gt "59" ]; then
+    echo "${_pure_colors["execution_time"]} ($SECODS secs)${_pure_colors["clear"]}"
+  fi
+}
+
 function __prompt_command {
   local last_exit="$?"
-
-  PS1="$(_pure_user_host_path) $(_pure_git_branch)$(_pure_git_dirty)$(_pure_git_stash)\n"
+  local seconds=
+  
+  PS1="$(_pure_user_host_path) $(_pure_git_branch)$(_pure_git_dirty)$(_pure_git_stash)$(_pure_execution_time)\n"
 
   if [ $last_exit != 0 ]; then
     PS1+="${_pure_colors["prompt:error"]}\$${_pure_colors["clear"]} "
@@ -85,4 +92,9 @@ function __prompt_command {
   fi
 }
 
+function __prompt_track_time {
+  SECONDS=0
+}
+
+preexec_functions+=(__prompt_track_time)
 PROMPT_COMMAND=__prompt_command
