@@ -73,15 +73,32 @@ function _pure_user_host_path {
   fi
 }
 
+function _pure_seconds_to_human {
+  local seconds=$((SECONDS % 60))
+  local minutes=$((SECONDS / 60 % 60))
+  local hours=$((SECONDS / 60 / 60 % 24))
+  local days=$((SECONDS / 60 / 60 / 24))
+
+  local str="${seconds}s"
+  if [ $days != 0 ]; then
+    str="${days}d ${hours}h ${minutes}m ${seconds}s"
+  elif [ $hours != 0 ]; then
+    str="${hours}h ${minutes}m ${seconds}s"
+  elif [ $minutes != 0 ]; then
+    str="${minutes}m ${seconds}s"
+  fi
+
+  echo "$str"
+}
+
 function _pure_execution_time {
-  if [ "$SECONDS" -gt "59" ]; then
-    echo "${_pure_colors["execution_time"]} ($SECODS secs)${_pure_colors["clear"]}"
+  if [ "$SECONDS" -gt "9" ]; then
+    echo "${_pure_colors["execution_time"]} ($(_pure_seconds_to_human))${_pure_colors["clear"]}"
   fi
 }
 
 function __prompt_command {
   local last_exit="$?"
-  local seconds=
   
   PS1="$(_pure_user_host_path) $(_pure_git_branch)$(_pure_git_dirty)$(_pure_git_stash)$(_pure_execution_time)\n"
 
