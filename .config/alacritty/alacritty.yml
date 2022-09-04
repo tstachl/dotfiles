@@ -57,7 +57,7 @@ window:
   opacity: 0.75
 
 shell:
-  program: bash
+  program: /usr/local/bin/bash
   args:
     - --login
 
