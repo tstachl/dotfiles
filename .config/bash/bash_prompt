@@ -39,7 +39,11 @@ function _pure_user {
 }
 
 function _pure_host {
-  echo -e "${_pure_colors["host"]}\h${_pure_colors["clear"]}"
+  local hostname="$HOSTNAME"
+  if [ $(sudo docker container ls 2>/dev/null | grep $hostname | wc -l) != 0 ]; then
+    hostname="devenv"
+  fi
+  echo -e "${_pure_colors["host"]}$hostname${_pure_colors["clear"]}"
 }
 
 function _pure_path {
