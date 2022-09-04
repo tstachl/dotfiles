@@ -40,12 +40,6 @@ function _pure_user {
 
 function _pure_host {
   local host=$(hostname -s)
-  local image=$(sudo docker container inspect $host -f '{{.Config.Image}}')
-
-  if [[ -n $image ]]; then
-    host=$(basename $image)
-  fi
-
   echo -e "${_pure_colors["host"]}$host${_pure_colors["clear"]}"
 }
 
