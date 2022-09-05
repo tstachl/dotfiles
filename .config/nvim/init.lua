@@ -14,6 +14,7 @@
 
 require "core.options"
 require "core.keymaps"
+require "core.disable"
 require "core.plugins"
 
 -- vim: nospell
