@@ -73,7 +73,10 @@ return packer.startup(function(use)
     config = function() require("plugins.nvimtree") end
   }
 
-  use { "lewis6991/gitsigns.nvim", module = "gitsigns" }
+  use {
+    "lewis6991/gitsigns.nvim",
+    config = function() require('gitsigns').setup() end
+  }
 
   use {
     "folke/which-key.nvim",
