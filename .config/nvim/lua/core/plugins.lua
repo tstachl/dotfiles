@@ -37,7 +37,7 @@ return packer.startup(function(use)
   
   use {
     "akinsho/toggleterm.nvim",
-    module = "toggleterm",
+    event = "VimEnter",
     config = function() require("plugins.toggleterm") end
   }
 
