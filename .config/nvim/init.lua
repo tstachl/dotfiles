@@ -12,8 +12,8 @@
 --
 -- The personal vim configuration of Thomas Stachl <thomas@stachl.me>
 
-require "user.options"
-require "user.keymaps"
-require "user.plugins"
+require "core.options"
+require "core.keymaps"
+require "core.plugins"
 
 -- vim: nospell

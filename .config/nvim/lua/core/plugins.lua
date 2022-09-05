@@ -1,5 +1,5 @@
 -- Use a protected call so we don't error out on first use
-local ok, packer = pcall(require, "user.packer")
+local ok, packer = pcall(require, "lib.packer")
 if not ok then
   return
 end
@@ -13,7 +13,7 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use {
     "windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
-    config = function() require("user.plugins.autopairs") end
+    config = function() require("plugins.autopairs") end
   }
 
   use {
@@ -29,7 +29,7 @@ return packer.startup(function(use)
     requires = {
       { "kyazdani42/nvim-web-devicons" },
     },
-    config = function() require("user.plugins.nvimtree") end
+    config = function() require("plugins.nvimtree") end
   }
 
   use {
@@ -39,12 +39,12 @@ return packer.startup(function(use)
       { "kyazdani42/nvim-web-devicons" },
       { "moll/vim-bbye" },
     },
-    config = function() require("user.plugins.bufferline") end
+    config = function() require("plugins.bufferline") end
   }
 
   use {
     "akinsho/toggleterm.nvim",
-    config = function() require("user.plugins.toggleterm") end
+    config = function() require("plugins.toggleterm") end
   }
   -- use "akinsho/toggleterm.nvim"
   -- use "ahmedkhalf/project.nvim"
@@ -54,19 +54,19 @@ return packer.startup(function(use)
   -- use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   use {
     "folke/which-key.nvim",
-    config = function() require("user.plugins.whichkey") end
+    config = function() require("plugins.whichkey") end
   }
 
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use {
     "cocopon/iceberg.vim",
-    config = function() require("user.plugins.colorscheme") end
+    config = function() require("plugins.colorscheme") end
   }
 
   use {
     "nvim-lualine/lualine.nvim",
-    config = function() require("user.plugins.lualine") end
+    config = function() require("plugins.lualine") end
   }
 
   -- autocomplete engine plugins
@@ -83,7 +83,7 @@ return packer.startup(function(use)
       { "rafamadriz/friendly-snippets" }, -- a bunch of snippets to use
       { "f3fora/cmp-spell" },
     },
-    config = function() require("user.plugins.cmp") end
+    config = function() require("plugins.cmp") end
   }
 
   -- LSP
@@ -92,7 +92,7 @@ return packer.startup(function(use)
     requires = {
       { "williamboman/nvim-lsp-installer" },
     },
-    config = function() require("user.plugins.lsp") end
+    config = function() require("plugins.lsp") end
   }
   -- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   -- use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
@@ -103,7 +103,7 @@ return packer.startup(function(use)
     requires = {
       -- { "nvim-telescope/telescope-media-files.nvim" },
     },
-    config = function() require("user.plugins.telescope") end
+    config = function() require("plugins.telescope") end
   }
 
   -- Treesitter
@@ -113,7 +113,7 @@ return packer.startup(function(use)
       { "JoosepAlviste/nvim-ts-context-commentstring" },
     },
     run = ":TSUpdate",
-    config = function() require("user.plugins.treesitter") end
+    config = function() require("plugins.treesitter") end
   }
 
   -- -- Git
