@@ -57,7 +57,7 @@ window:
   opacity: 0.75
 
 shell:
-  program: /usr/local/bin/bash
+  program: /opt/homebrew/bin/bash
   args:
     - --login
 
