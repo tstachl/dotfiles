@@ -60,7 +60,7 @@ return packer.startup(function(use)
     event = "BufReadPre",
     requires = {
       { "kyazdani42/nvim-web-devicons" },
-      { "moll/vim-bbye" },
+      { "moll/vim-bbye" }, -- better buffer delete using :Bdelete
     },
     config = function() require("plugins.bufferline") end
   }

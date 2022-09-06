@@ -12,9 +12,9 @@
 --
 -- The personal vim configuration of Thomas Stachl <thomas@stachl.me>
 
+require "core.disable"
 require "core.options"
 require "core.keymaps"
-require "core.disable"
 require "core.plugins"
 
 -- vim: nospell
