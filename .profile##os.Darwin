@@ -16,4 +16,11 @@ if [ -d "${XDG_CONFIG_HOME}/bash" ]; then
   HISTFILE="${XDG_CONFIG_HOME}/bash/bash_history"
 fi
 
-. "$HOME/.cargo/env"
+if [ -f "${HOME}/.cargo/env" ]; then
+  . "$HOME/.cargo/env"
+fi
+
+if [ -f "/opt/homebrew/bin/brew" ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
