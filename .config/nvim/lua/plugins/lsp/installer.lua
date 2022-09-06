@@ -12,11 +12,11 @@ installer.setup {
 
 for _, server in pairs(servers) do
   local opts = {
-    on_attach = require("user.plugins.lsp.handlers").on_attach,
-    capabilities = require("user.plugins.lsp.handlers").capabilities,
+    on_attach = require("plugins.lsp.handlers").on_attach,
+    capabilities = require("plugins.lsp.handlers").capabilities,
   }
 
-  local settings_ok, settings = pcall(require, "user.plugins.lsp.settings." .. server)
+  local settings_ok, settings = pcall(require, "plugins.lsp.settings." .. server)
   if settings_ok then
     opts = vim.tbl_deep_extend("force", settings, opts)
   end
