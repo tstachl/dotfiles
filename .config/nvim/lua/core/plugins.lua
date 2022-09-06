@@ -32,6 +32,7 @@ return packer.startup(function(use)
     --   { "JoosepAlviste/nvim-ts-context-commentstring" },
     -- },
     run = ":TSUpdate",
+    module = "treesitter",
     config = function() require("plugins.treesitter") end
   }
   
