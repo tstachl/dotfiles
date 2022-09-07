@@ -107,6 +107,7 @@ return packer.startup(function(use)
       { "hrsh7th/cmp-buffer", event = "InsertCharPre" },
       { "hrsh7th/cmp-path", event = "InsertCharPre" },
       { "hrsh7th/cmp-cmdline", event = "InsertCharPre" },
+      { "f3fora/cmp-spell", event = "InsertCharPre" },
     },
   }
 
