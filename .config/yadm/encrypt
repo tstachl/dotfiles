@@ -1,2 +1,4 @@
 .ssh/id_*
 .ssh/config
+.config/mutt/muttrc
+
