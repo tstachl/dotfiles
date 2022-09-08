@@ -1,6 +1,7 @@
 # ALIASES
 alias repos="cd /Users/tstachl/Workspace/personal/repos" # new macbook?
 alias la="ls -la --color=auto"
+alias rustup_install="curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
 
 # FUNCTIONS
 devenv() {
