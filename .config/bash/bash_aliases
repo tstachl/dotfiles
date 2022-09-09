@@ -2,9 +2,26 @@
 alias repos="cd /Users/tstachl/Workspace/personal/repos" # new macbook?
 alias la="ls -la --color=auto"
 alias rustup_install="curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
+alias notes="devenv tstachl/notes"
 
 # FUNCTIONS
 devenv() {
-  docker run --rm --privileged -ite REPO=$1 -e TERM=alacritty --mount source=devenv,target=/home/thomas/workspace -v /var/run/docker.sock:/var/run/docker.sock tstachl/devenv
+  IMAGE=${IMAGE:-tstachl/devenv}
+  REPO=$1
+
+  shift;
+
+#  echo "rest arguments: $@"
+#  cat << EOF
+  docker run --rm --privileged -ite REPO=$REPO -e TERM=alacritty \
+      --mount source=devenv,target=/home/thomas/workspace \
+      -v /var/run/docker.sock:/var/run/docker.sock \
+      $@ \
+    ${IMAGE}
+#EOF
+}
+
+devrust() {
+  IMAGE=tstachl/devenv:rust devenv $@
 }
 
