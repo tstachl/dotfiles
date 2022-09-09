@@ -5,12 +5,13 @@ end
 
 configs.setup {
   ensure_installed = {
-    "astro", "bash", "comment", "css", "dart", "dockerfile",
-    "go", "graphql", "help", "html", "javascript", "json",
-    "json5", "lua", "python", "regex", "ruby", "rust", "scss",
-    "toml", "tsx", "typescript", "vim", "vue", "yaml",
+--    "astro", "bash", "comment", "css", "dart", "dockerfile",
+--    "go", "graphql", "help", "html", "javascript", "json",
+--    "json5", "lua", "python", "regex", "ruby", "rust", "scss",
+--    "toml", "tsx", "typescript", "vim", "vue", "yaml",
   },
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
+  auto_install = true, -- install parser automatically based on filetype
   ignore_install = { "" }, -- List of parsers to ignore installing
   autopairs = {
     enable = true,
