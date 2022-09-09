@@ -5,6 +5,7 @@ end
 
 configs.setup {
   ensure_installed = {
+    "markdown_inline", "comment", "help",
 --    "astro", "bash", "comment", "css", "dart", "dockerfile",
 --    "go", "graphql", "help", "html", "javascript", "json",
 --    "json5", "lua", "python", "regex", "ruby", "rust", "scss",

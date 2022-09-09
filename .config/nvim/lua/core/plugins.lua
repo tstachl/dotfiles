@@ -154,5 +154,6 @@ return packer.startup(function(use)
   -- Put this at the end after all plugins
   if packer.bootstrap then
     require("packer").sync()
+    packer.bootstrap = nil
   end
 end)
