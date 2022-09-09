@@ -11,17 +11,18 @@ devenv() {
 
   shift;
 
-#  echo "rest arguments: $@"
-#  cat << EOF
   docker run --rm --privileged -ite REPO=$REPO -e TERM=alacritty \
       --mount source=devenv,target=/home/thomas/workspace \
       -v /var/run/docker.sock:/var/run/docker.sock \
       $@ \
     ${IMAGE}
-#EOF
 }
 
-devrust() {
+drust() {
   IMAGE=tstachl/devenv:rust devenv $@
+}
+
+dnode() {
+  IMAGE=tstachl/devenv:node devenv $@
 }
 
