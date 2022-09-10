@@ -35,6 +35,15 @@ return packer.startup(function(use)
     config = function() require("plugins.treesitter") end
   }
 
+  -- Telescope
+  use {
+    "nvim-telescope/telescope.nvim",
+    requires = {
+      -- { "nvim-telescope/telescope-media-files.nvim" },
+    },
+    config = function() require("plugins.telescope") end
+  }
+
   -- Toggle Term
   use {
     "akinsho/toggleterm.nvim",
@@ -54,6 +63,7 @@ return packer.startup(function(use)
     event = "VimEnter",
     config = function() require("plugins.lualine") end
   }
+
 
   use {
     "akinsho/bufferline.nvim",
@@ -120,7 +130,6 @@ return packer.startup(function(use)
   use {
     "renerocksai/telekasten.nvim",
     module = "telekasten",
-    config = function() print("config telekasten") end
   }
 
   -- -- use "numToStr/Comment.nvim" -- Easily comment stuff
@@ -144,15 +153,6 @@ return packer.startup(function(use)
   -- }
   -- -- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   -- -- use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
-
-  -- -- Telescope
-  -- use {
-  --   "nvim-telescope/telescope.nvim",
-  --   requires = {
-  --     -- { "nvim-telescope/telescope-media-files.nvim" },
-  --   },
-  --   config = function() require("plugins.telescope") end
-  -- }
 
 
   -- -- Git
