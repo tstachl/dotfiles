@@ -25,13 +25,17 @@ return packer.startup(function(use)
   use { "nvim-lua/popup.nvim", module = "popup" }
   use { "nvim-lua/plenary.nvim", module = "plenary" }
 
+  -- Exrc NVim plugin for project specific configuration
+  use { "MunifTanjim/exrc.nvim", config = function() require("exrc").setup({ files = { ".exrc.lua" } }) end }
+
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
     run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
     config = function() require("plugins.treesitter") end
   }
-  
+
+  -- Toggle Term
   use {
     "akinsho/toggleterm.nvim",
     event = "VimEnter",
@@ -113,7 +117,11 @@ return packer.startup(function(use)
     config = function() require("plugins.autopairs") end
   }
 
-
+  use {
+    "renerocksai/telekasten.nvim",
+    module = "telekasten",
+    config = function() print("config telekasten") end
+  }
 
   -- -- use "numToStr/Comment.nvim" -- Easily comment stuff
 
