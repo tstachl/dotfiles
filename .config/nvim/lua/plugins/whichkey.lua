@@ -96,14 +96,28 @@ local mappings = {
   ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 
-  w = {
-    name = "Wiki",
-    w = { "<cmd>VimwikiIndex<cr>", "Open Index" },
-    d = {
-    name = "Diary",
-      i = { "<cmd>VimwikiDiaryIndex<cr>", "Open Diary Index" },
-      n = { "<cmd>VimwikiMakeDiaryNote<cr>", "New Diary Note" },
-    },
+  z = {
+    name = "Telekasten",
+    f = { "<cmd>lua require('telekasten').find_notes()<cr>", "Find Notes" },
+    d = { "<cmd>lua require('telekasten').find_daily_notes()<cr>", "Find Daily Notes" },
+    g = { "<cmd>lua require('telekasten').search_notes()<cr>", "Search Notes" },
+    z = { "<cmd>lua require('telekasten').follow_link()<cr>", "Follow Link" },
+    T = { "<cmd>lua require('telekasten').goto_today()<cr>", "Today" },
+    W = { "<cmd>lua require('telekasten').goto_thisweek()<cr>", "This Week" },
+    w = { "<cmd>lua require('telekasten').find_weekly_notes()<cr>", "Find Weekly Notes" },
+    n = { "<cmd>lua require('telekasten').new_note()<cr>", "New Note" },
+    N = { "<cmd>lua require('telekasten').new_templated_note()<cr>", "New Templated Note" },
+    y = { "<cmd>lua require('telekasten').yank_notelink()<cr>", "Yank Note Link" },
+    c = { "<cmd>lua require('telekasten').show_calendar()<cr>", "Show Calendar" },
+    i = { "<cmd>lua require('telekasten').paste_img_and_link()<cr>", "Paste Image and Link" },
+    t = { "<cmd>lua require('telekasten').toggle_todo()<cr>", "Toggle Todo" },
+    b = { "<cmd>lua require('telekasten').show_backlinks()<cr>", "Show Backlinks" },
+    F = { "<cmd>lua require('telekasten').find_friends()<cr>", "Find Friends" },
+    I = { "<cmd>lua require('telekasten').insert_img_link({ i=true })<cr>", "Inser Image Link" },
+    p = { "<cmd>lua require('telekasten').preview_img()<cr>", "Preview Image" },
+    m = { "<cmd>lua require('telekasten').browse_media()<cr>", "Browse Media" },
+    ["#"] = { "<cmd>lua require('telekasten').show_tags()<cr>", "Show Tags" },
+    r = { "<cmd>lua require('telekasten').rename_note()<cr>", "Rename Note" },
   },
 
   p = {
