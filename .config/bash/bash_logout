@@ -1,7 +1,7 @@
 # ~/.bash_logout: executed by bash(1) when login shell exits.
 
 # when leaving REPO=tstachl/notes push all the changes to origin
-if [ "$REPO" = "tstachl/notes" ]; then
+if [[ "$REPO" = "tstachl/notes" ]]; then
   cd "~/workspace/tstachl/notes"
   if [[ `git status --porcelain` ]]; then 
     git add .
