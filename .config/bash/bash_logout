@@ -2,7 +2,7 @@
 
 # when leaving REPO=tstachl/notes push all the changes to origin
 if [[ "$REPO" = "tstachl/notes" ]]; then
-  cd "~/workspace/tstachl/notes"
+  cd ~/workspace/tstachl/notes
   if [[ `git status --porcelain` ]]; then 
     git add .
     git commit -m "$(date -Iseconds)"
