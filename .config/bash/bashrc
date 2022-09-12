@@ -28,7 +28,21 @@ shopt -s checkwinsize
 #shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
-#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# push changes on exit
+push_changes() {
+  # when leaving REPO=tstachl/notes push all the changes to origin
+  if [ "$REPO" != "" ]; then
+    cd ~/workspace/$REPO
+    if [[ `git status --porcelain` ]]; then 
+      git add .
+      git commit -m "$(date -Iseconds)"
+      git push origin
+    fi
+  fi
+}
+trap push_changes EXIT
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
