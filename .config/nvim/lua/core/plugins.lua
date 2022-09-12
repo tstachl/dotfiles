@@ -130,6 +130,7 @@ return packer.startup(function(use)
   use {
     "renerocksai/telekasten.nvim",
     module = "telekasten",
+    requires = { "renerocksai/calendar-vim" },
   }
 
   -- -- use "numToStr/Comment.nvim" -- Easily comment stuff
