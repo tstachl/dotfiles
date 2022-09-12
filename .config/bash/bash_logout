@@ -1,7 +1,16 @@
 # ~/.bash_logout: executed by bash(1) when login shell exits.
 
-# when leaving the console clear the screen to increase privacy
+# when leaving REPO=tstachl/notes push all the changes to origin
+if [ "$REPO" = "tstachl/notes" ]; then
+  cd "~/workspace/tstachl/notes"
+  if [[ `git status --porcelain` ]]; then 
+    git add .
+    git commit -m "$(date -Iseconds)"
+    git push origin
+  fi
+fi
 
+# when leaving the console clear the screen to increase privacy
 if [ "$SHLVL" = 1 ]; then
     [ -x /usr/bin/clear_console ] && /usr/bin/clear_console -q
 fi
